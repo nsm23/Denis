@@ -23,9 +23,9 @@ class UserManager(BaseUserManager):
             user = self.model(username=username,
                               phone=phone,
                               **user_fields)
-            user.set_password(password)
-            user.save(using=self._db)
-            return user
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
     def create_user(self, username, email,
                     password, **user_fields):
@@ -33,14 +33,11 @@ class UserManager(BaseUserManager):
         return self._create_user(self, username=username,
                                  email=email, password=password, **user_fields)
 
-    def create_superuser(self, username, password, **user_fields):
+    def create_superuser(self, username, email, password, **user_fields):
         user_fields.setdefault('is_superuser', True)
         user_fields.setdefault('is_staff', True)
         user_fields.setdefault('is_active', True)
         return self._create_user(username=username,
+                                 email=email,
                                  password=password,
                                  **user_fields)
-
-
-
-
