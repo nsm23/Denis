@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'phone_field',
     'djoser',
     'crispy_forms',
+    'cryspy_bootstrap5',
     'users',
 ]
 
@@ -64,6 +65,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'denis_shop.urls'
+#LOGOUT_REDIRECT_URL = "main"
 
 TEMPLATES = [
     {
@@ -80,6 +82,9 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 WSGI_APPLICATION = 'denis_shop.wsgi.application'
 
@@ -121,6 +126,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
+
+DATE_FORMAT = '%d-%m-%Y'
 
 USE_L10N = True
 
