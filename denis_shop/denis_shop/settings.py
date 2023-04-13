@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'phone_field',
     'djoser',
     'crispy_forms',
-    'cryspy_bootstrap5',
+    'crispy_bootstrap5',
     'users',
 ]
 

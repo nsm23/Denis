@@ -12,14 +12,12 @@
         <input type="hidden" name="next" value="{{ next }}">
         <p><input type="submit" value="login" class="btn btn-secondary"></p>
     </form>
-        <a class="btn btn-primary" href="{% url 'cabinet:register' %}">Registration
+        <a class="btn btn-primary" href="{% url 'cabinet:registration' %}">Registration
         </a>
     {# АУТОНТИФИКАЦИЯ С ПОМОЩЬЮ VK #}
     <div class="social">
         Войти с помощью:
         <a
-           href="{% url 'social:begin' 'vk-oauth2' %}?next=/">
-            <img src="{% static '/img/VK-logo.png' %}" class="img-fluid social-logo" alt="VK">
         </a>
     </div>
 
