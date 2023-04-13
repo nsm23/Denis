@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Войти{% endblock %}
+
+{% block content %}
+    <h1>Войти</h1>
+    <p>Чтобы авторизоваться, заполните, пожалуйста, форму:</p>
+    <form action="." method="post">
+        {{ form | crispy }}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <p><input type="submit" value="login" class="btn btn-secondary"></p>
+    </form>
+        <a class="btn btn-primary" href="{% url 'cabinet:registration' %}">Registration
+        </a>
+    {# АУТОНТИФИКАЦИЯ С ПОМОЩЬЮ VK #}
+    <div class="social">
+        Войти с помощью:
+        <a
+        </a>
+    </div>
+
+{% endblock %}
