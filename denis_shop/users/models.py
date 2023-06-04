@@ -36,8 +36,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['email']
 
     class Meta:
-        verbose_name = _('user')
-        verbose_name_plural = _('users')
+        verbose_name = _('пользователь')
+        verbose_name_plural = _('пользователи')
         unique_together = ('username', 'email', 'phone')
 
     def email_user(self, subject, message, from_email=None, **kwargs):

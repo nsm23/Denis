@@ -37,3 +37,5 @@ def registration(request):
     return render(request,
                   template_name='users/user_register.html',
                   context={"reg_form": registration_form})
+
+
