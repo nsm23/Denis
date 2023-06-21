@@ -4,7 +4,7 @@ from users.models import User
 
 
 class DateInput(forms.DateInput):
-    input_type = 'date'
+    input_type = "date"
 
 
 class UserForm(forms.ModelForm):
@@ -12,10 +12,9 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'birthday',
-                  'email', 'phone', 'avatar']
+        fields = ["username", "birthday", "email", "phone", "avatar"]
         widget = {
-            'birthday': DateInput,
+            "birthday": DateInput,
         }
 
 
@@ -24,18 +23,16 @@ class UserRegisterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email')
+        fields = ("username", "email")
 
-    password = forms.CharField(label='пароль',
-                               widget=forms.PasswordInput)
-    password2 = forms.CharField(label='повторите пароль',
-                                widget=forms.PasswordInput)
+    password = forms.CharField(label="Пароль", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Повторите пароль", widget=forms.PasswordInput)
 
     def clean_password(self):
         cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Пароли не совпадают')
-        return cd['password2']
+        if cd["password"] != cd["password2"]:
+            raise forms.ValidationError("Пароли не совпадают")
+        return cd["password2"]
 
 
 class UserForgotPasswordForm(PasswordResetForm):
@@ -45,8 +42,7 @@ class UserForgotPasswordForm(PasswordResetForm):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update(
-                {'class': 'form-control',
-                 'autocomplete': 'off'}
+                {"class": "form-control", "autocomplete": "off"}
             )
 
 
@@ -57,6 +53,5 @@ class UserSetNewPassword(SetPasswordForm):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update(
-                {'class': 'form-control',
-                 'autocomplete': 'off'}
+                {"class": "form-control", "autocomplete": "off"}
             )

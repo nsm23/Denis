@@ -10,30 +10,36 @@ from users.forms import UserRegisterForm
 
 class UserLoginView(LoginView):
     """Логин"""
-    template_name = 'users/user_login.html'
+
+    template_name = "users/user_login.html"
     form_class = AuthenticationForm
-    next_page = reverse_lazy('main')
+    next_page = reverse_lazy("main")
 
 
 class UserLogoutView(LogoutView):
     """Лог аут"""
-    http_method_names = 'get'
-    template_name = '/'
+
+    http_method_names = "get"
+    template_name = "/"
     extra_context = None
 
 
 def registration(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         registration_form = UserRegisterForm(request.POST)
         if registration_form.is_valid():
             user = registration_form.save(commit=False)
-            user.set_password(registration_form.cleaned_data['password'])
+            user.set_password(registration_form.cleaned_data["password"])
             user.save()
-            return render(request,
-                          template_name='users/user_reg_done.html',
-                          context={'user': user})
+            return render(
+                request,
+                template_name="users/user_reg_done.html",
+                context={"user": user},
+            )
     else:
         registration_form = UserRegisterForm()
-    return render(request,
-                  template_name='users/user_register.html',
-                  context={"reg_form": registration_form})
+    return render(
+        request,
+        template_name="users/user_register.html",
+        context={"reg_form": registration_form},
+    )

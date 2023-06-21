@@ -4,10 +4,17 @@ from users.models import User, Profile
 
 
 class UserAdminConfig(UserAdmin):
-    search_fields = ('email', 'username', 'phone', 'is_verified')
-    ordering = ('-username',)
-    list_display = ('username', 'email', 'phone',
-                    'is_staff', 'is_superuser', 'is_active', 'is_verified')
+    search_fields = ("email", "username", "phone", "is_verified")
+    ordering = ("-username",)
+    list_display = (
+        "username",
+        "email",
+        "phone",
+        "is_staff",
+        "is_superuser",
+        "is_active",
+        "is_verified",
+    )
     fieldsets = (
         (
             None,
